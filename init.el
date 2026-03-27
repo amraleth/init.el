@@ -406,10 +406,15 @@
   (magit-todos-mode 1))
 
 (use-package diff-hl
-  :hook ((magit-post-refresh . diff-hl-magit-post-refresh)
-         (magit-pre-refresh . diff-hl-magit-pre-refresh))
+  :demand t
   :config
-  (global-diff-hl-mode))
+  (global-diff-hl-mode)
+  (diff-hl-flydiff-mode)
+  :hook
+  ((magit-post-refresh . diff-hl-magit-post-refresh)
+   (magit-pre-refresh . diff-hl-magit-pre-refresh)
+   (dired-mode . diff-hl-dired-mode)))
+
 
 (use-package dired-git-info
   :after dired
