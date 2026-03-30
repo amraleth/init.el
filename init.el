@@ -444,4 +444,16 @@
 (use-package yasnippet-snippets
   :after yasnippet)
 
+;; python
+(use-package python
+  :straight (:type built-in)
+  :custom
+  (pyton-ident-offset 4)
+  :hook (python-mode . eglot-ensure))
+
+(use-package pyvenv
+  :hook (python-mode . pyvenv-mode)
+  :custom
+  (pyvenv-default-virtual-env-name ".venv"))
+
 ;;; init.el ends here
